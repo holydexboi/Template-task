@@ -76,12 +76,107 @@ export default function Template() {
       </div>
       <div className="mt-14">
         <div className="flex justify-between">
-          <p className="font-semibold text-xl">All Templates</p>
+          <p className=" font-medium text-lg text-gray-700">All Templates</p>
           <p className=" font-normal text-gray-400">2000 templates</p>
         </div>
-        <div>
-          <div className=" w-16 h-40">
-
+        <div className="mt-5 grid grid-cols-3 gap-6">
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
+          </div>
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
+          </div>
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
+          </div>
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
+          </div>
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
+          </div>
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
+          </div>
+          <div className="rounded-b-lg shadow-2xl">
+            <div className=" h-60 pt-6 pl-6 pr-11">
+              <p className=" text-3xl text-[#333447] font-semibold">
+                Alumni Membership Form Template
+              </p>
+              <p className="mt-4 font-normal text-lg leading-5 pr-6">
+                Engage your alumin network better wih this alumni registration
+                form template. Embed this in your website ...
+              </p>
+            </div>
+            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
+              <p className="">Use Template</p>
+            </div>
           </div>
         </div>
       </div>
