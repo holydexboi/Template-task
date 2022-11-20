@@ -1,6 +1,21 @@
 import React from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
+import TemplateCard from "./TemplateCard";
+import SelectInput from "./SelectInput";
+
+const categoryOption = [
+  { label: "All", value: "All" },
+  { label: "Education", value: "Education" },
+  { label: "E-commerce", value: "E-commerce" },
+  { label: "Health", value: "Health" },
+];
+
+const orderOptions = [
+  { label: "Default", value: "Default" },
+  { label: "Ascending", value: "Ascending" },
+  { label: "Descending", value: "Descending" },
+];
 
 export default function Template() {
   return (
@@ -21,46 +36,9 @@ export default function Template() {
             {" "}
             <p className="text-gray-400 font-normal text-base">Sort By:</p>
           </div>
-          <div className="relative">
-            <select className="border rounded text-gray-600 font-medium h-12 w-56">
-              <option value={"all"}>All</option>
-              <option value={"education"}>Education</option>
-              <option value={"agriculture"}>Agriculture</option>
-              <option value={"health"}>Health</option>
-            </select>
-            <label
-              for="small_outlined"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 left-1"
-            >
-              Category
-            </label>
-          </div>
-          <div className="relative">
-            <select className="border rounded text-gray-600 font-medium h-12 w-56">
-              <option value={"default"}>Default</option>
-              <option value={"descending"}>Descending</option>
-              <option value={"Ascending"}>Ascending</option>
-            </select>
-            <label
-              for="small_outlined"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 left-1"
-            >
-              Order
-            </label>
-          </div>
-          <div className="relative">
-            <select className="border rounded text-gray-600 font-medium h-12 w-56">
-              <option value={"default"}>Default</option>
-              <option value={"descending"}>Descending</option>
-              <option value={"Ascending"}>Ascending</option>
-            </select>
-            <label
-              for="small_outlined"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 left-1"
-            >
-              Date
-            </label>
-          </div>
+          <SelectInput options={categoryOption} label="Category" />
+          <SelectInput options={orderOptions} label="Order" />
+          <SelectInput options={orderOptions} label="Date" />
         </div>
       </form>
       <div className="w-full h-16 flex justify-center text-center pt-7 bg-[#FFF4EA] rounded-sm mt-20 ">
@@ -79,105 +57,24 @@ export default function Template() {
           <p className=" font-medium text-lg text-gray-700">All Templates</p>
           <p className=" font-normal text-gray-400">2000 templates</p>
         </div>
-        <div className="mt-5 grid grid-cols-3 gap-6">
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
-          <div className="rounded-b-lg shadow-2xl">
-            <div className=" h-60 pt-6 pl-6 pr-11">
-              <p className=" text-3xl text-[#333447] font-semibold">
-                Alumni Membership Form Template
-              </p>
-              <p className="mt-4 font-normal text-lg leading-5 pr-6">
-                Engage your alumin network better wih this alumni registration
-                form template. Embed this in your website ...
-              </p>
-            </div>
-            <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-              <p className="">Use Template</p>
-            </div>
-          </div>
+        <div className="mt-5 grid grid-cols-3 gap-16">
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
         </div>
       </div>
     </div>
