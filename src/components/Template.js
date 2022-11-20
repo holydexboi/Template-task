@@ -1,4 +1,5 @@
 import React from "react";
+import { useGetTemplatesQuery } from "../services/template";
 import { RiSearchLine } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
 import TemplateCard from "./TemplateCard";
@@ -18,6 +19,11 @@ const orderOptions = [
 ];
 
 export default function Template() {
+  const { data, error, isLoading } = useGetTemplatesQuery();
+  console.log(data);
+  console.log(error);
+  console.log(isLoading);
+
   return (
     <div className="container mx-auto pt-20">
       <form className="flex justify-between">
@@ -57,7 +63,7 @@ export default function Template() {
           <p className=" font-medium text-lg text-gray-700">All Templates</p>
           <p className=" font-normal text-gray-400">2000 templates</p>
         </div>
-        <div className="mt-5 grid grid-cols-3 gap-16">
+        <div className="mt-5 grid grid-cols-3 px-4 gap-16 scrollbar-thin scrollbar-thumb-black scrollbar-thumb-rounded scrollbar-track-black-300 h-screen overflow-y-scroll">
           <TemplateCard />
           <TemplateCard />
           <TemplateCard />
@@ -75,6 +81,29 @@ export default function Template() {
           <TemplateCard />
           <TemplateCard />
           <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+          <TemplateCard />
+        </div>
+
+        <div>
+          <p>Previous</p>
+          <p>Previous</p>
+          <p>Next</p>
         </div>
       </div>
     </div>
