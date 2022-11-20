@@ -100,10 +100,10 @@ export default function Template() {
           <TemplateCard />
         </div>
 
-        <div>
-          <p>Previous</p>
-          <p>Previous</p>
-          <p>Next</p>
+        <div className="flex justify-between px-20 my-20">
+          <p className="font-semibold">Previous</p>
+          <div className="font-semibold text-lg"><span className=" border rounded-md border-spacing-2 border-gray-600 p-2">1</span> <span>{' of '}</span><span>14</span></div>
+          <p className="font-semibold">Next</p>
         </div>
       </div>
     </div>
