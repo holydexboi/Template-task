@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useGetTemplatesQuery } from "../services/template";
-import Pagination from '../components/Pagination'
+import Pagination from "../components/Pagination";
 import paginate from "./utils/paginate";
 import { RiSearchLine } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
@@ -22,27 +22,36 @@ const orderOptions = [
 
 export default function Template() {
   const { data, error, isLoading } = useGetTemplatesQuery();
-const templateCount = isLoading ? 1 : data.length
 
-
-  const [pageSize] = useState(100)
-  const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize] = useState(100);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredData, setFilteredData] = useState([]);
   console.log(data);
   console.log(error);
   console.log(isLoading);
 
-  
-
   const handleNextPageChange = () => {
-    console.log(currentPage)
-    if(currentPage <= data.length) setCurrentPage(prev => prev+1)
-  }
+    console.log(currentPage);
+    if (currentPage < data.length) setCurrentPage((prev) => prev + 1);
+  };
 
   const handlePreviousPageChange = () => {
-    if(currentPage >= 1) setCurrentPage(prev => prev - 1)
-  }
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
 
-  const templates = paginate(data, currentPage, pageSize)
+  const handleSearch = (e) => {
+    if (e.target.value.length !== 0)
+      setFilteredData(data.filter((item) => item.name === e.target.value));
+    else setFilteredData([]);
+  };
+
+  const templateCount = filteredData ? filteredData.length : data.length;
+
+  const templates = paginate(
+    filteredData.length === 0 ? filteredData : data,
+    currentPage,
+    pageSize
+  );
 
   return (
     <div className="container mx-auto pt-20">
@@ -52,6 +61,7 @@ const templateCount = isLoading ? 1 : data.length
             type={"search"}
             className="h-12 pl-8 border rounded w-full text-lg"
             placeholder="Search Templates"
+            onChange={(e) => handleSearch(e)}
           />
           <span className="absolute mr-2 w-10">
             <RiSearchLine className="text-gray-500 text-3xl font-thin" />
@@ -84,12 +94,19 @@ const templateCount = isLoading ? 1 : data.length
           <p className=" font-normal text-gray-400">2000 templates</p>
         </div>
         <div className="mt-5 grid grid-cols-3 px-4 gap-16 scrollbar-thin scrollbar-thumb-black scrollbar-thumb-rounded scrollbar-track-black-300 h-screen overflow-y-scroll">
-
-         {templates.map(template =>  <TemplateCard  templateItem={template}/>)}
+          {templates.map((template) => (
+            <TemplateCard templateItem={template} />
+          ))}
         </div>
 
         <div className="m-14">
-          <Pagination itemsCount={templateCount} currentPage={currentPage} pageSize={pageSize} onNextPageChange={handleNextPageChange} onPreviousPageChange={handlePreviousPageChange}/>
+          <Pagination
+            itemsCount={templateCount}
+            currentPage={currentPage}
+            pageSize={pageSize}
+            onNextPageChange={handleNextPageChange}
+            onPreviousPageChange={handlePreviousPageChange}
+          />
         </div>
       </div>
     </div>

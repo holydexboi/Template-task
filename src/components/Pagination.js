@@ -1,15 +1,26 @@
-import React from 'react'
-import _ from 'lodash'
+import React from "react";
 
-export default function Pagination({itemsCount, currentPage, pageSize, onNextPageChange, onPreviousPageChange}) {
+export default function Pagination({
+  itemsCount,
+  currentPage,
+  pageSize,
+  onNextPageChange,
+  onPreviousPageChange,
+}) {
 
-  const pageCount = Math.ceil(itemsCount/pageSize)
+  if(itemsCount === 0) return null
+  const pageCount = Math.ceil(itemsCount / pageSize);
 
-  if(pageCount === 1) return null
-  const pages = _.range(1, pageCount + 1)
+  if (pageCount === 1) return null;
+
   return (
     <div className="flex justify-between">
-      <button onClick={()=>onPreviousPageChange()} className=" text-2xl font-medium">Previous</button>
+      <button
+        onClick={() => onPreviousPageChange()}
+        className=" text-2xl font-medium"
+      >
+        {currentPage > 1 ? <span className="mr-3 text-3xl">{"<"}</span> : ""}Previous
+      </button>
       <div className="flex">
         <button
           disabled
@@ -24,7 +35,12 @@ export default function Pagination({itemsCount, currentPage, pageSize, onNextPag
           {pageCount}
         </button>
       </div>
-      <button onClick={() => onNextPageChange()} className=" text-2xl font-medium">Next</button>
+      <button
+        onClick={() => onNextPageChange()}
+        className=" text-2xl font-medium"
+      >
+        Next{currentPage < pageCount ? <span className="ml-3 text-3xl">{">"}</span> : ""}
+      </button>
     </div>
   );
 }
