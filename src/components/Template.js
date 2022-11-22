@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGetTemplatesQuery } from "../services/template";
+import Pagination from '../components/Pagination'
+import paginate from "./utils/paginate";
 import { RiSearchLine } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
 import TemplateCard from "./TemplateCard";
@@ -20,9 +22,27 @@ const orderOptions = [
 
 export default function Template() {
   const { data, error, isLoading } = useGetTemplatesQuery();
+const templateCount = isLoading ? 1 : data.length
+
+
+  const [pageSize] = useState(100)
+  const [currentPage, setCurrentPage] = useState(1)
   console.log(data);
   console.log(error);
   console.log(isLoading);
+
+  
+
+  const handleNextPageChange = () => {
+    console.log(currentPage)
+    if(currentPage <= data.length) setCurrentPage(prev => prev+1)
+  }
+
+  const handlePreviousPageChange = () => {
+    if(currentPage >= 1) setCurrentPage(prev => prev - 1)
+  }
+
+  const templates = paginate(data, currentPage, pageSize)
 
   return (
     <div className="container mx-auto pt-20">
@@ -64,59 +84,12 @@ export default function Template() {
           <p className=" font-normal text-gray-400">2000 templates</p>
         </div>
         <div className="mt-5 grid grid-cols-3 px-4 gap-16 scrollbar-thin scrollbar-thumb-black scrollbar-thumb-rounded scrollbar-track-black-300 h-screen overflow-y-scroll">
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
-          <TemplateCard />
+
+         {templates.map(template =>  <TemplateCard  templateItem={template}/>)}
         </div>
 
         <div className="m-14">
-          <button className=" text-2xl font-medium">Previous</button>
-          <div className="flex">
-            <button
-              disabled
-              className=" border-2 rounded-md py-1 px-4 text-xl  text-[#3F3F3F] font-bold border-black"
-            >
-              1
-            </button>
-            <p className="rounded-md py-2 pl-4 pr-1 text-xl text-[#3F3F3F] font-bold">
-              of
-            </p>
-            <button className="rounded-md py-2 text-xl text-[#3F3F3F] font-bold">
-              14
-            </button>
-          </div>
-          <button className=" text-2xl font-medium">Next</button>
+          <Pagination itemsCount={templateCount} currentPage={currentPage} pageSize={pageSize} onNextPageChange={handleNextPageChange} onPreviousPageChange={handlePreviousPageChange}/>
         </div>
       </div>
     </div>
