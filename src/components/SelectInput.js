@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function SelectInput({ options, label }) {
+export default function SelectInput({ options, value, label, onSelectChange}) {
   return (
     <>
       <div className="relative">
-        <select className="border rounded text-gray-600 font-medium h-12 w-56">
+        <select value={value} onChange={onSelectChange} className="border rounded text-gray-600 font-medium h-12 w-56">
           {options.map((option) => (
             <option value={option.value}>{option.label}</option>
           ))}

@@ -7,8 +7,7 @@ export default function Pagination({
   onNextPageChange,
   onPreviousPageChange,
 }) {
-
-  if(itemsCount === 0) return null
+  if (itemsCount === 0) return null;
   const pageCount = Math.ceil(itemsCount / pageSize);
 
   if (pageCount === 1) return null;
@@ -19,7 +18,8 @@ export default function Pagination({
         onClick={() => onPreviousPageChange()}
         className=" text-2xl font-medium"
       >
-        {currentPage > 1 ? <span className="mr-3 text-3xl">{"<"}</span> : ""}Previous
+        {currentPage > 1 ? <span className="mr-3 text-3xl">{"<"}</span> : ""}
+        Previous
       </button>
       <div className="flex">
         <button
@@ -36,10 +36,15 @@ export default function Pagination({
         </button>
       </div>
       <button
-        onClick={() => onNextPageChange()}
+        onClick={() => onNextPageChange(pageCount)}
         className=" text-2xl font-medium"
       >
-        Next{currentPage < pageCount ? <span className="ml-3 text-3xl">{">"}</span> : ""}
+        Next
+        {currentPage < pageCount ? (
+          <span className="ml-3 text-3xl">{">"}</span>
+        ) : (
+          ""
+        )}
       </button>
     </div>
   );
