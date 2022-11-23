@@ -6,6 +6,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
 import TemplateCard from "./TemplateCard";
 import SelectInput from "./SelectInput";
+import _ from "lodash";
 
 const categoryOption = [
   { label: "All", value: "All" },
@@ -27,7 +28,10 @@ export default function Template() {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState(data);
   const [searchFilter, setSearchFilter] = useState(categoryFilter);
+  const [sorted, setSorted] = useState(searchFilter);
   const [category, setCategory] = useState("All");
+  const [order, setOrder] = useState("Default");
+  const [dateOrder, setDateOrder] = useState("Default");
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleNextPageChange = (pageCount) => {
@@ -49,6 +53,16 @@ export default function Template() {
     setSearchQuery("");
   };
 
+  const handleOrderChange = (selectedOrder) => {
+    console.log(selectedOrder);
+    setOrder(selectedOrder);
+  };
+
+  const handleDateOrderChange = (selectedDateOrder) => {
+    console.log(selectedDateOrder);
+    setDateOrder(selectedDateOrder);
+  };
+
   useEffect(() => {
     if (!isLoading && category && category !== "All") {
       setCategoryFilter(
@@ -68,6 +82,19 @@ export default function Template() {
       );
     else if (!searchQuery) setSearchFilter(categoryFilter);
   }, [searchQuery, categoryFilter, isLoading]);
+
+  useEffect(() => {
+    if (!isLoading && searchFilter && order !== 'Default') {
+      
+        const sortedTemplates = _.orderBy(
+          searchFilter,
+          "name",
+          order === "Ascending" ? "asc" : "desc"
+        );
+        setSorted(sortedTemplates);
+      
+    } else if (!order || order === 'Defaultt') setSorted(searchFilter);
+  }, [searchFilter, order, isLoading]);
 
   const templates = paginate(searchFilter, currentPage, pageSize);
 
@@ -97,8 +124,18 @@ export default function Template() {
             value={category}
             onSelectChange={(e) => handleCategoryChange(e.target.value)}
           />
-          <SelectInput options={orderOptions} label="Order" />
-          <SelectInput options={orderOptions} label="Date" />
+          <SelectInput
+            value={order}
+            options={orderOptions}
+            label="Order"
+            onSelectChange={(e) => handleOrderChange(e.target.value)}
+          />
+          <SelectInput
+            value={dateOrder}
+            options={orderOptions}
+            label="Date"
+            onSelectChange={(e) => handleDateOrderChange(e.target.value)}
+          />
         </div>
       </form>
       <div className="w-full h-16 flex justify-center text-center pt-7 bg-[#FFF4EA] rounded-sm mt-20 ">
