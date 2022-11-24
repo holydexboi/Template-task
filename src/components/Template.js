@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useGetTemplatesQuery } from "../services/template";
-import Pagination from "../components/Pagination";
-import paginate from "./utils/paginate";
+import Pagination from "./Pagination/Pagination";
+import paginate from "../utils/paginate";
 import { RiSearchLine } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
 import TemplateCard from "./TemplateCard";
-import SelectInput from "./SelectInput";
+import SelectInput from "./SelectInput/SelectInput";
 import _ from "lodash";
 
 const categoryOption = [
