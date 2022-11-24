@@ -4,9 +4,9 @@ export default function SelectInput({ options, value, label, onSelectChange}) {
   return (
     <>
       <div className="relative">
-        <select value={value} onChange={onSelectChange} className="border rounded text-gray-600 font-medium h-12 w-56">
+        <select value={value} onChange={onSelectChange} className="border rounded text-gray-600 font-medium h-12 lg:w-56 md:w-full w-full">
           {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
+            <option key={option.value} value={option.value}>{option.label}</option>
           ))}
         </select>
         <label
