@@ -12,7 +12,7 @@ function TemplateCard({templateItem}) {
         </p>
       </div>
       <div className="h-11 text-[#08bd37] font-bold pl-6 pr-11 py-2 bg-gray-100">
-        <a href={templateItem.link} className="">Use Template</a>
+        <a href={templateItem.link} className=" pointer-events-none">Use Template</a>
       </div>
     </div>
   );

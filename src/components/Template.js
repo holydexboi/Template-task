@@ -50,16 +50,20 @@ export default function Template() {
   const handleCategoryChange = (selectedCategory) => {
     setCategory(selectedCategory);
     setSearchQuery("");
+    setOrder("Default");
+    setDateOrder("Default");
     setCurrentPage(1);
   };
 
   const handleOrderChange = (selectedOrder) => {
     setOrder(selectedOrder);
+    setDateOrder("Default");
     setCurrentPage(1);
   };
 
   const handleDateOrderChange = (selectedDateOrder) => {
     setDateOrder(selectedDateOrder);
+    setOrder("Default");
     setCurrentPage(1);
   };
 
@@ -86,15 +90,9 @@ export default function Template() {
   }, [searchQuery, categoryFilter, isLoading]);
 
   useEffect(() => {
-    console.log("did");
-    console.log(order);
-    console.log(dateOrder);
     if (!isLoading && order === "Default" && dateOrder === "Default") {
-      console.log("didnt");
       setSorted(searchFilter);
     } else if (!isLoading && searchFilter) {
-      console.log("dint");
-
       if (order !== "Default" && dateOrder !== "Default") {
         const orderSort = _.orderBy(
           searchFilter,
