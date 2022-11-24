@@ -175,10 +175,7 @@ export default function Template() {
       </form>
       <div className="w-full h-auto flex justify-center  md:pt-5 py-4 md:px-3 px-2 container  bg-[#FFF4EA] rounded-sm mt-20 ">
         {" "}
-        <BsInfoCircle
-          
-          className="md:mr-7 mr-2 -mt-1 text-[#FC830A] text-4xl lg:text-4xl "
-        />
+        <BsInfoCircle className="md:mr-7 mr-2 -mt-1 text-[#FC830A] text-4xl lg:text-4xl " />
         <p className="font-bold text-xs md:text-sm text-[#252525] md:pt-2">
           Tada! Get started with a free template. Can't find what you are
           looking for? Search from the 1000+ available templates
@@ -198,13 +195,16 @@ export default function Template() {
             {error.error}
           </p>
         ) : isLoading ? (
-          <button type="button" className="bg-indigo-500 ..." disabled>
-            <svg
-              className="animate-spin h-5 w-5 mr-3 ..."
-              viewBox="0 0 24 24"
-            ></svg>
-            Processing...
-          </button>
+          <div class="flex justify-center items-center">
+            {" "}
+            <div
+              class="w-12 h-12 rounded-full animate-spin
+                    border-8 border-solid border-purple-500 border-t-transparent"
+            ></div>
+            <span>
+              <p class="pt-2 text-xl pl-2 font-bold">Loading</p>
+            </span>
+          </div>
         ) : (
           <div>
             {" "}
